@@ -1,0 +1,17 @@
+F:\c# & WPF\VidIva\bin\Debug\VidIva.exe.config
+F:\c# & WPF\VidIva\bin\Debug\VidIva.exe
+F:\c# & WPF\VidIva\bin\Debug\VidIva.pdb
+F:\c# & WPF\VidIva\obj\Debug\MainWindow.g.cs
+F:\c# & WPF\VidIva\obj\Debug\App.g.cs
+F:\c# & WPF\VidIva\obj\Debug\VidIva_MarkupCompile.cache
+F:\c# & WPF\VidIva\obj\Debug\VidIva_MarkupCompile.lref
+F:\c# & WPF\VidIva\obj\Debug\MainWindow.baml
+F:\c# & WPF\VidIva\obj\Debug\VidIva.g.resources
+F:\c# & WPF\VidIva\obj\Debug\VidIva.Properties.Resources.resources
+F:\c# & WPF\VidIva\obj\Debug\VidIva.csproj.GenerateResource.cache
+F:\c# & WPF\VidIva\obj\Debug\VidIva.csproj.CoreCompileInputs.cache
+F:\c# & WPF\VidIva\obj\Debug\VidIva.exe
+F:\c# & WPF\VidIva\obj\Debug\VidIva.pdb
+F:\c# & WPF\VidIva\obj\Debug\VidIva.csprojAssemblyReference.cache
+F:\c# & WPF\VidIva\obj\Debug\Windows\About.g.cs
+F:\c# & WPF\VidIva\obj\Debug\Windows\About.baml
