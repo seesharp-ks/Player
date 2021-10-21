@@ -15,3 +15,20 @@ F:\c# & WPF\VidIva\obj\Debug\VidIva.pdb
 F:\c# & WPF\VidIva\obj\Debug\VidIva.csprojAssemblyReference.cache
 F:\c# & WPF\VidIva\obj\Debug\Windows\About.g.cs
 F:\c# & WPF\VidIva\obj\Debug\Windows\About.baml
+C:\Users\prepod\Desktop\Player-main\VidIva\bin\Debug\VidIva.exe.config
+C:\Users\prepod\Desktop\Player-main\VidIva\bin\Debug\VidIva.exe
+C:\Users\prepod\Desktop\Player-main\VidIva\bin\Debug\VidIva.pdb
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\VidIva.csproj.AssemblyReference.cache
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\MainWindow.g.cs
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\App.g.cs
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\VidIva_MarkupCompile.cache
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\VidIva_MarkupCompile.lref
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\MainWindow.baml
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\VidIva.g.resources
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\VidIva.Properties.Resources.resources
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\VidIva.csproj.GenerateResource.cache
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\VidIva.csproj.CoreCompileInputs.cache
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\VidIva.exe
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\VidIva.pdb
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\Windows\AboutWindow.g.cs
+C:\Users\prepod\Desktop\Player-main\VidIva\obj\Debug\Windows\AboutWindow.baml

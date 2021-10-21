@@ -5,35 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VidIva"
         mc:Ignorable="d"
-        Title="Окно плеера" FontFamily="Bahnschrift Light" FontSize="14" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" 
-        Width="960" Height="540" MaxWidth="1920" MaxHeight="1080" MinWidth="320" MinHeight="240">
+        Title="Окно плеера" FontFamily="Bahnschrift Light" FontSize="14" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" 
+        Width="960" Height="540" MaxWidth="1920" MaxHeight="1080" MinWidth="480" MinHeight="270">
     <Window.Resources>
         <Style TargetType="MediaElement">
             <Setter Property="Stretch" Value="None"/>
             <Setter Property="LoadedBehavior" Value="Manual"/>
+            <Setter Property="Volume" Value="1"/>
         </Style>
 
         <Style TargetType="Menu">
             <Setter Property="Height" Value="20"/>
-            <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold"/>
             <Setter Property="FontSize" Value="14"/>
         </Style>
         
-        <Style TargetType="Button">
-            <Setter Property="FontFamily" Value="Verdana" />
-            <Setter Property="Background" Value="DarkBlue" />
-            <Setter Property="Foreground" Value="Aqua" />
+        <Style TargetType="Button" x:Key="PControls">
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold" />
+            <Setter Property="Background" Value="#13242F" />
+            <Setter Property="Foreground" Value="#7193A2" />
             <Setter Property="Margin" Value="2" />
-            <Setter Property="Width" Value="40"/>
+            <Setter Property="Width" Value="50"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Padding" Value="4"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Style.Resources>
         </Style>
-        
-        <Style TargetType="Label">
-            <Setter Property="Margin" Value="3"/>
-            <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+
+        <Style TargetType="Button" x:Key="POpen">
+            <Setter Property="FontFamily" Value="Arial Rounded MT Bold" />
+            <Setter Property="Background" Value="#13242F" />
+            <Setter Property="Foreground" Value="#7193A2" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="Height" Value="auto"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style TargetType="Label" x:Key="AllInfo">
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="Foreground" Value="Ivory"/>
+            <Setter Property="FontFamily" Value="Segoe UI Semibold"/>
+            <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
 
         <Style TargetType="Slider">
@@ -41,27 +66,28 @@
             <Setter Property="Maximum" Value="1"/>
             <Setter Property="Value" Value="0.5"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
         </Style>
     </Window.Resources>
     
-    <Grid Background="#121117">
+    <Grid Background="#13242F">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.05*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.24*"/>
         </Grid.RowDefinitions>
-        
-        <Menu>
+
+        <Menu Background="Transparent" Foreground="#7193A2">
             <MenuItem Header="Файл">
-                <MenuItem Header="Открыть файл..." Name="OpenFile" Click="OpenFile_Click" >
+                <MenuItem Header="Открыть файл..." Name="OpenFile" Click="OpenFile_Click">
                     <MenuItem.Icon>
-                        <Image Source="Icons/video.png"/>
+                        <Image Source="Icons/video.png" HorizontalAlignment="Center"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="Выйти" Name="ExitProgram" Click="ExitProgram_Click">
                     <MenuItem.Icon>
-                        <Image Source="Icons/exit.png"/>
+                        <Image Source="Icons/exit.png" HorizontalAlignment="Center"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
@@ -75,19 +101,30 @@
         </Menu>
 
         <MediaElement Grid.Row="1" Name="Player" Source="null"/>
-        <StackPanel Grid.Row="2" Orientation="Vertical">
-            <Label Name="Status" Content="Плеер неактивен..." HorizontalContentAlignment="Center" Foreground="White" />
-            <Border Background="LightYellow" BorderBrush="LightPink" BorderThickness="2" CornerRadius="8">
+        <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center">
+            <Label Name="Status" Content="Плеер неактивен..."  Style="{StaticResource AllInfo}"/>
+            <Border Background="#2B4455" BorderBrush="#456778" BorderThickness="2" CornerRadius="8">
                 <StackPanel HorizontalAlignment="Left"  Orientation="Horizontal">
-                    <Button Name="Play"     Click="Play_Click"      Content="▷"/>
-                    <Button Name="Pause"    Click="Pause_Click"     Content="⏸"/>
-                    <Button Name="Stop"     Click="Stop_Click"      Content="☐"/>
-                    <Label  Content="Громкость:"    VerticalAlignment="Center"/>
-                    <Slider x:Name="VolumeSlider"   Width="100"     ValueChanged="VolumeSlider_ValueChanged" />
-                    <Button Name="SlowDown" Click="SlowDown_Click"  Content="⏪" />
-                    <Button Name="Reset"    Click="Reset_Click"     Content="♾" />
-                    <Button Name="SpeedUp"  Click="SpeedUp_Click"   Content="⏩" />
+                    <StackPanel Orientation="Horizontal">
+                    <Button Name="Play"     Click="Play_Click"      Content="▷" Style="{StaticResource PControls}"/>
+                    <Button Name="Pause"    Click="Pause_Click"     Content="⏸" Style="{StaticResource PControls}"/>
+                    <Button Name="Stop"     Click="Stop_Click"      Content="☐" Style="{StaticResource PControls}"/>
+                    <Button Name="SlowDown" Click="SlowDown_Click"  Content="⏪" Style="{StaticResource PControls}"/>
+                    <Button Name="Reset"    Click="Reset_Click"     Content="♾" Style="{StaticResource PControls}"/>
+                    <Button Name="SpeedUp"  Click="SpeedUp_Click"   Content="⏩" Style="{StaticResource PControls}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                    <Label  Content="Громкость" Style="{StaticResource AllInfo}"/>
+                    <Slider x:Name="VolumeSlider" Width="100" ValueChanged="VolumeSlider_ValueChanged" />
+                    </StackPanel>
                     <Label  Name="Multiplier"   VerticalContentAlignment="Center" />
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <TextBox x:Name="InputURL" Width="auto" Margin="5" Background="Transparent" Height="20" FontSize="14"/>
+                            <Label Content="Поддерживаются ссылки только по протоколу http." Style="{StaticResource AllInfo}"/>
+                        </StackPanel>
+                        <Button x:Name="ChooseURL" Content="Открыть" Click="ChooseURL_Click" Style="{StaticResource POpen}"/>
+                    </StackPanel>
                 </StackPanel>
             </Border>
         </StackPanel>
