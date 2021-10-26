@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VidIva"
         mc:Ignorable="d"
-        Title="Окно плеера" FontFamily="Bahnschrift Light" FontSize="14" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" 
-        Width="960" Height="540" MaxWidth="1920" MaxHeight="1080" MinWidth="480" MinHeight="270">
+        Title="Окно плеера" FontFamily="Bahnschrift Light" FontSize="14" WindowStartupLocation="CenterScreen" ResizeMode="CanResize"
+        Width="1280" Height="720" MaxWidth="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenWidthKey}}" MaxHeight="{DynamicResource {x:Static SystemParameters.MaximizedPrimaryScreenHeightKey}}" MinWidth="480" MinHeight="270" x:Name="MW">
     <Window.Resources>
         <Style TargetType="MediaElement">
             <Setter Property="Stretch" Value="None"/>
@@ -70,60 +70,49 @@
         </Style>
     </Window.Resources>
     
-    <Grid Background="#13242F">
+    <Grid Background="#13242F" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.05*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="0.24*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="85*"/>
+            <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
 
-        <Menu Background="Transparent" Foreground="#7193A2">
-            <MenuItem Header="Файл">
-                <MenuItem Header="Открыть файл..." Name="OpenFile" Click="OpenFile_Click">
-                    <MenuItem.Icon>
-                        <Image Source="Icons/video.png" HorizontalAlignment="Center"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <Separator />
-                <MenuItem Header="Выйти" Name="ExitProgram" Click="ExitProgram_Click">
-                    <MenuItem.Icon>
-                        <Image Source="Icons/exit.png" HorizontalAlignment="Center"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="Справка" >
-                <MenuItem Header="О программе" Name="AboutProgram" Click="AboutProgram_Click" >
-                    <MenuItem.Icon>
-                        <Image Source="Icons/about.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
+        <Menu Background="Transparent" Foreground="#7193A2" HorizontalAlignment="Center">
+            <MenuItem Header="Открыть файл"             Name="OpenFile"     Click="OpenFile_Click"      Margin="1"/>
+            <MenuItem Header="На весь экран" Name="Max"          Click="Max_Click"           Margin="1"/>
+            <MenuItem Header="Выйти"                    Name="ExitProgram"  Click="ExitProgram_Click"   Margin="1"/>
+            <MenuItem Header="О программе"              Name="AboutProgram" Click="AboutProgram_Click"  Margin="1"/>
         </Menu>
 
-        <MediaElement Grid.Row="1" Name="Player" Source="null"/>
-        <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center">
-            <Label Name="Status" Content="Плеер неактивен..."  Style="{StaticResource AllInfo}"/>
+        <Border Background="#2B4455" BorderBrush="#456778" BorderThickness="2" CornerRadius="8" Grid.Row="1">
+            <MediaElement Name="Player" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Uniform"/>
+        </Border>
+
+        <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Stretch" Margin="5">
             <Border Background="#2B4455" BorderBrush="#456778" BorderThickness="2" CornerRadius="8">
-                <StackPanel HorizontalAlignment="Left"  Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="Stretch"  Orientation="Horizontal">
                     <StackPanel Orientation="Horizontal">
-                    <Button Name="Play"     Click="Play_Click"      Content="▷" Style="{StaticResource PControls}"/>
-                    <Button Name="Pause"    Click="Pause_Click"     Content="⏸" Style="{StaticResource PControls}"/>
-                    <Button Name="Stop"     Click="Stop_Click"      Content="☐" Style="{StaticResource PControls}"/>
-                    <Button Name="SlowDown" Click="SlowDown_Click"  Content="⏪" Style="{StaticResource PControls}"/>
-                    <Button Name="Reset"    Click="Reset_Click"     Content="♾" Style="{StaticResource PControls}"/>
-                    <Button Name="SpeedUp"  Click="SpeedUp_Click"   Content="⏩" Style="{StaticResource PControls}"/>
+                        <Button Name="Play"     Click="Play_Click"      Content="▷" Style="{StaticResource PControls}"/>
+                        <Button Name="Pause"    Click="Pause_Click"     Content="⏸" Style="{StaticResource PControls}"/>
+                        <Button Name="Stop"     Click="Stop_Click"      Content="☐" Style="{StaticResource PControls}"/>
+                        <Button Name="SlowDown" Click="SlowDown_Click"  Content="⏪" Style="{StaticResource PControls}"/>
+                        <Button Name="Reset"    Click="Reset_Click"     Content="♾" Style="{StaticResource PControls}"/>
+                        <Button Name="SpeedUp"  Click="SpeedUp_Click"   Content="⏩" Style="{StaticResource PControls}"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                    <Label  Content="Громкость" Style="{StaticResource AllInfo}"/>
-                    <Slider x:Name="VolumeSlider" Width="100" ValueChanged="VolumeSlider_ValueChanged" />
+
+                    <StackPanel Orientation="Vertical">
+                        <Label  Content="Громкость" Style="{StaticResource AllInfo}"/>
+                        <Slider x:Name="VolumeSlider" Width="100" ValueChanged="VolumeSlider_ValueChanged" />
+                        <Label Name="Status" Content="Плеер неактивен..."  Style="{StaticResource AllInfo}"/>
                     </StackPanel>
-                    <Label  Name="Multiplier"   VerticalContentAlignment="Center" />
+
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Orientation="Vertical">
-                            <TextBox x:Name="InputURL" Width="auto" Margin="5" Background="Transparent" Height="20" FontSize="14"/>
+                            <TextBox x:Name="InputURL" Margin="5" Background="Transparent" Height="20" FontSize="14"/>
                             <Label Content="Поддерживаются ссылки только по протоколу http." Style="{StaticResource AllInfo}"/>
                         </StackPanel>
                         <Button x:Name="ChooseURL" Content="Открыть" Click="ChooseURL_Click" Style="{StaticResource POpen}"/>
+                        <Label  Name="Multiplier"   VerticalContentAlignment="Center" Content="x" Style="{StaticResource AllInfo}" />
                     </StackPanel>
                 </StackPanel>
             </Border>

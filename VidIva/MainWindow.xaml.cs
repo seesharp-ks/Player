@@ -100,11 +100,29 @@ namespace VidIva
                 {
                     Player.Source = new Uri(InputURL.Text); //примеры: http://dl.muzking.net/files/track/2021/09/kino-viktor-coj-gruppa-krovi.mp3
                     Player.Play();                          //и http://c.tenor.com/VP9EJxwaAsYAAAPo/nba-basketball-players.mp4
-                }
+                } //1080p https://cdn.videvo.net/videvo_files/video/free/2019-01/large_watermarked/181015_13_Venice%20Beach%20Drone_25_preview.mp4
                 catch (UriFormatException urie) {
                     MessageBox.Show(urie.Message + "\n\nПроверьте ссылку и попробуйте ещё раз.", "Ошибка: ссылка имела неверный формат", MessageBoxButton.OK, MessageBoxImage.Error);
                     InputURL.Text = null;
                 }
+        }
+
+        private void Max_Click(object sender, RoutedEventArgs e)
+        {
+            if (MW.WindowStyle == WindowStyle.SingleBorderWindow)
+            {
+                MW.WindowStyle = WindowStyle.None;
+                MW.WindowState = WindowState.Maximized;
+                MW.ResizeMode = ResizeMode.NoResize; //https://tinyurl.com/fullscrwpf
+                Player.Stretch = System.Windows.Media.Stretch.Fill;
+            }
+            else
+            {
+                Player.Stretch = System.Windows.Media.Stretch.Uniform;
+                MW.WindowStyle = WindowStyle.SingleBorderWindow;
+                MW.WindowState = WindowState.Normal;
+                MW.ResizeMode = ResizeMode.CanResize;
+            }
         }
     }
 }

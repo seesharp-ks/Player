@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/openlink.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/maximize.png")]
 
 

@@ -104,17 +104,5 @@
   <ItemGroup>
     <Resource Include="инфа-для-курсача.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\video.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\about.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\linkchain.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
